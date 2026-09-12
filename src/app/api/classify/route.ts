@@ -27,6 +27,11 @@ const ai = new GoogleGenAI({ apiKey: "AIzaSyASUiMPmUBDhilOTS1oNVyODASJo7Wkskg" }
 	});
 
 	console.log(response.text);
+
+	if (!response.text) {
+	  throw new Error("No text returned from response");
+	}
+	
 	const thing2 = response.text.replace(/^```json\s*/, "").replace(/```[\s\S]*$/, "")
 	console.log(thing2)
 	// const { image } = await req.json();
